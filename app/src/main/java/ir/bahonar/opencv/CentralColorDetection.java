@@ -116,7 +116,7 @@ public class CentralColorDetection {
 
 
     COLORS[][] makeMatrix(Bitmap bitmap){
-        COLORS[][] result = new COLORS[60][75];
+        COLORS[][] result = new COLORS[bitmap.getWidth()][bitmap.getHeight()];
         for (int i = 0 ; i < bitmap.getWidth();i++)
             for (int j = 0 ; j < bitmap.getHeight();j++)
             {
@@ -147,6 +147,10 @@ public class CentralColorDetection {
         long longBlue = Long.parseLong(blue,16);
         long longGreen = Long.parseLong(green,16);
         long longRed = Long.parseLong(red,16);
+
+        Log.e("RED",longRed+"");
+        Log.e("GREEN",longGreen+"");
+        Log.e("Blue",longBlue+"");
 
         double max = Math.max(Math.max(longBlue,longGreen),longRed);
         double min = Math.min(Math.min(longBlue,longGreen),longRed);

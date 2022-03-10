@@ -21,15 +21,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final int res = R.drawable.env;
+        final int res = R.drawable.stirght;
         Bitmap bm = BitmapFactory.decodeResource(getResources(), res);
         ImageView im = findViewById(R.id.imageView);
         final TextView tv = findViewById(R.id.textView);
-        im.setImageResource(res);
         View v = findViewById(R.id.view);
         Button b = findViewById(R.id.button);
-        im.setImageBitmap(Tools.getResizedBitmap(bm,60,75));
-        
+        Bitmap bit = Tools.getResizedBitmap(bm, (int) (bm.getWidth()*0.1),(int)(bm.getHeight()*0.1));
+        im.setImageBitmap(bit);
+        //new CentralColorDetection(im,bit,v,tv);
+        new SignDetection(bit);
     }
 
 
